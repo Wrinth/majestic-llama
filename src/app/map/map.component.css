@@ -1,0 +1,50 @@
+main {
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  height: 79vh;
+}
+
+.title {
+  text-align: center;
+}
+
+#map {
+  height: 72vh;
+}
+
+#locations_list {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.card-header {
+  cursor: pointer;
+}
+
+#locations_map {
+  height: 100%;
+}
+
+agm-map {
+  width: 100%;
+  height: 100%;
+}
+
+#farmInfo {
+  position: absolute;
+  top: 1%;
+  right: 3%;
+  padding: 2%;
+  padding-bottom: 0;
+  background-color: #FFFFFF;
+  border: solid black 1px;
+}
+
+#farmInfo div {
+  padding: 0;
+}
+
+#farmInfo button {
+  width: 100%;
+  cursor: pointer;
+}

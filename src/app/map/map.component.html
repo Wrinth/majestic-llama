@@ -1,0 +1,43 @@
+<main class="container">
+  <div class="col col-xs-12">
+    <h2 class="title">{{title}}</h2>
+  </div>
+  <div class="col-xs-12 row" id="map">
+    <div class="col-xs-12 col-sm-3" id="locations_list">
+      <div class="card">
+        <div class="card-header"
+             (click)="showAllFarms()">
+          <b>Farm List(Show All)</b>
+        </div>
+        <div class="list-group list-group-flush">
+          <a routerLink="/map"
+             class="list-group-item list-group-item-action"
+             *ngFor="let farm of farms"
+             (click)="listItemClick(farm)">
+            <b *ngIf="farm.id === selected_farm_id">{{farm.name}}</b>
+            <h6 *ngIf="farm.id !== selected_farm_id">{{farm.name}}</h6>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-9" id="locations_map">
+      <agm-map [zoom]="zoominLevel" [latitude]="lat" [longitude]="lng">
+        <agm-marker (markerClick)="markerClick(farm)" [latitude]="farm.lat" [longitude]="farm.lon" *ngFor="let farm of farmsOnMap">
+        </agm-marker>
+      </agm-map>
+      <div id="farmInfo" *ngIf="selected_farm_id !== 0">
+        <a target="_blank" href="{{selected_farm_link}}"><h3>Farm Name: {{selected_farm_name}}</h3></a>
+        <p><b>Address: </b>{{selected_farm_address}}</p>
+        <p><b>Phone: </b>{{selected_farm_phone}}</p>
+        <div class="row">
+          <div class="col col-xs-6">
+            <button class="btn btn-success" (click)="showAllFarms()">Show All Farms</button>
+          </div>
+          <div class="col col-xs-6">
+            <button class="btn btn-danger" (click)="selected_farm_id = 0">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

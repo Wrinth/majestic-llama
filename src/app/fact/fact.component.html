@@ -1,0 +1,29 @@
+<main class="container">
+  <div class="col col-xs-12">
+    <h2 class="title">{{title}}</h2>
+  </div>
+  <div class="col col-xs-12 row">
+
+    <div class="col-xs-12 col-sm-6 col-lg-4" *ngFor="let fact of facts">
+
+      <div class="card">
+        <div class="card-block">
+          <blockquote class="card-blockquote">
+            <p class="card-text">{{fact.story}}</p>
+          </blockquote>
+        </div>
+        <div class="row">
+          <div class="col col-xs-12">
+            <button class="btn btn-success" (click)="userLike(fact.id)"><i class="fa fa-thumbs-up fa-lg"></i></button>
+            <button class="btn btn-danger" (click)="userDislike(fact.id)"><i class="fa fa-thumbs-down fa-lg"></i></button>
+          </div>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted"><b>{{fact.likes}}</b> Likes and <b>{{fact.dislikes}}</b> Dislikes</small>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</main>

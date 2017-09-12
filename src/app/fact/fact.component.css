@@ -1,0 +1,17 @@
+main {
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+}
+
+.title {
+  text-align: center;
+}
+
+.card {
+  margin-bottom: 5%;
+}
+
+button {
+  cursor: pointer;
+  margin: 3%;
+}

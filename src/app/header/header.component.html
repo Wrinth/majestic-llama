@@ -1,0 +1,32 @@
+<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" style="background-color: #e3f2fd;">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" *ngIf="windowWidth <= 991" routerLink="/">
+    <img src="../../assets/logo.png" width="30" height="30" class="d-inline-block" alt="logo">
+    Majestic Llama
+  </a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/about">About</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/map">Llamas Map</a>
+      </li>
+      <li class="nav-item" *ngIf="windowWidth > 991">
+        <a class="navbar-brand" routerLink="/">
+          <img src="../../assets/logo.png" width="30" height="30" class="d-inline-block" alt="logo">
+          Majestic Lama
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/fact">Fun Facts</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/quiz">Take a Quiz</a>
+      </li>
+    </ul>
+  </div>
+</nav>

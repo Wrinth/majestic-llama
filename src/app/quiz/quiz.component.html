@@ -1,0 +1,56 @@
+<main class="container">
+  <div class="col col-xs-12">
+    <h2 class="title">{{title}}</h2>
+  </div>
+  <div class="col col-xs-12" id="quiz-wrapper">
+
+    <button class="start-quiz btn btn-lg btn-default" *ngIf="currentQuestionNumber == 0" (click)="startQuiz()">
+      Started Quiz<i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </button>
+
+    <div id="quiz" *ngIf="currentQuestionNumber > 0 && currentQuestionNumber <= questions.length">
+
+      <div *ngFor="let question of questions">
+
+        <div class="question" *ngIf="question.id == currentQuestionNumber">
+          <h2>{{question.question}}</h2>
+          <ul class="answere">
+            <li class="radio" (click)="selectedAnswer = 'a'">
+              <input type="radio" [(ngModel)]="selectedAnswer" value="a" />
+              <label>{{question.options[0]}}</label>
+            </li>
+            <li class="radio" (click)="selectedAnswer = 'b'">
+              <input type="radio" [(ngModel)]="selectedAnswer" value="b" />
+              <label>{{question.options[1]}}</label>
+            </li>
+            <li class="radio" (click)="selectedAnswer = 'c'">
+              <input type="radio" [(ngModel)]="selectedAnswer" value="c" />
+              <label>{{question.options[2]}}</label>
+            </li>
+          </ul>
+
+          <button
+            type="button"
+            class="btn btn-primary btn-lg"
+            [disabled]="selectedAnswer == ''"
+            (click)="selectedAnswer == question.answer ? addScore() : nextQuestion()">
+            Next
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="result" *ngIf="currentQuestionNumber > questions.length">
+      <div>
+      <h1>Your score is {{score}} out of {{questions.length}}!</h1>
+      <h2 *ngIf="score >= questions.length * 0.7">Congratulations!</h2>
+      <h2 *ngIf="score < questions.length * 0.7">You should retake the test.</h2>
+      <hr>
+      <button class="start-quiz btn btn-default btn-md" (click)="startQuiz()">Retake Quiz</button>
+      </div>
+    </div>
+
+  </div>
+</main>
